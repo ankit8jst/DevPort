@@ -1,6 +1,6 @@
 # Portfolio Website
 
-![Portfolio Screenshot][Screenshot 2025-04-24 184432 ![Screenshot 2025-04-24 184420  ![Screenshot 2025-04-24 184428]![Screenshot 2025-04-24 184432](https://github.com/user-attachments/assets/c7c30de5-bcf6-4063-bb36-770ab504a6a3)
+(https://github.com/user-attachments/assets/c7c30de5-bcf6-4063-bb36-770ab504a6a3)
 (https://github.com/user-attachments/assets/cca7ea89-a48d-451e-8093-0f84137d6bd4)
 ](https://github.com/user-attachments/assets/2ecd2931-119f-4399-884e-090e4afd2e59)
 ](https://github.com/user-attachments/assets/83b11d67-fb4b-49bc-871f-604dc921967c)
