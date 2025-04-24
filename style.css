@@ -72,13 +72,13 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 0;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 
@@ -86,18 +86,6 @@ body {
     color: var(--primary);
 }
 
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(45deg, var(--dark), var(--primary));
-    color: white;
-
-    margin: 0;
-    padding: 40px 0;
-    overflow-x: hidden;
-    min-height: auto;
-}
 
 .hero-content {
     text-align: center;
@@ -375,7 +363,9 @@ input, textarea {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
+
 
 .animated-bg {
     position: absolute;
@@ -414,6 +404,7 @@ input, textarea {
     display: inline-block;
     position: relative;
     animation: float 3s ease-in-out infinite;
+    margin-top: 40px
 }
 
 @keyframes float {
@@ -427,21 +418,31 @@ input, textarea {
     background-clip: text;
     color: transparent;
     animation: hueShift 5s infinite linear;
-}
 
+}
 @keyframes hueShift {
     from { filter: hue-rotate(0deg); }
     to { filter: hue-rotate(360deg); }
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
     position: relative;
     display: inline-block;
-    animation: typing 3s steps(20) infinite;
+    width: 100%;
+    max-width: 100%; 
+    animation: typing 3s steps(30) infinite;  /* Lower steps value */
     overflow: hidden;
     border-right: 2px solid var(--primary);
-}
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 770px) {
+    .hero-subtitle {
+      font-size: 1.5rem;  /* Adjust font size for mobile */
+      animation: typing 3s steps(20) 1;  /* Ensure animation runs on mobile */
+    }
+  }
+  
 
 @keyframes typing {
     from { width: 0; }
@@ -608,7 +609,7 @@ input, textarea {
     position: fixed;
     top: 0;
     width: 100%;
-    background: linear-gradient(45deg, rgba(44, 62, 80, 0.98), rgba(52, 152, 219, 0.95));
+    background: linear-gradient(45deg, rgba(44, 62, 80, 0.98), rgba(87, 135, 168, 0.95));
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -634,21 +635,6 @@ input, textarea {
     opacity: 0.2;
 }
 
-.navbar {
-    box-shadow: 0 10px 30px -10px rgba(46, 204, 113, calc(0.2 + var(--shadow-intensity, 0) * 0.2));
-}
-
-
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: linear-gradient(45deg, rgba(23, 83, 78, 0.98), rgba(52, 152, 219, 0.95));
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 15px 35px -5px rgba(46, 204, 113, 0.25); 
-}
 
 .navbar::after {
     content: '';
@@ -681,3 +667,175 @@ input, textarea {
 .navbar.scrolled {
     box-shadow: 0 30px 45px -10px rgba(55, 20, 151, 0.4);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;  /* Adjust height as necessary */
+    background: linear-gradient(45deg, #06606a, #8799da, #3bb97e, #c56d8c, #38384417, #a26ad7);
+    background-size: 300% 300%;  /* For smooth gradient transition */
+    animation: vibrantColors 5s ease infinite;  /* Continuous vibrant color animation */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);  /* Strong downward shadow */
+    position: relative;
+    filter: blur(.2px);
+    border-style: initial;
+}
+
+/* Faded bottom edge effect */
+.navbar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;  /* Height of the fade */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);  /* Fading effect */
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00ff00;  /* Change hover color to green */
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+/* Keyframe animation for the vibrant background colors */
+@keyframes vibrantColors {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }
+  
+  @keyframes rotateBorder {
+    to {
+      --border-angle: 1turn;
+    }
+  }
+  
+  .hero {
+    --border-angle: 0turn;
+  
+    height: 350px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, var(--dark), var(--primary));
+    color: white;
+  
+    margin: 0;
+    padding: 40px 0;
+    overflow-x: hidden;
+    min-height: auto;
+  
+    border: 4px solid transparent;
+    border-radius: 0 0 20px 20px; /* bottom corners rounded only */
+  
+    --main-bg: linear-gradient(45deg, var(--dark), var(--primary));
+    --gradient-border: conic-gradient(
+      from var(--border-angle),
+      rgb(84, 84, 107), rgb(144, 208, 208), rgb(96, 160, 96), rgb(111, 111, 69), rgb(202, 146, 146), rgb(172, 97, 172), rgb(104, 104, 242)
+    );
+  
+    background:
+      var(--main-bg) padding-box,
+      var(--gradient-border) border-box;
+  
+    background-clip: padding-box, border-box;
+    background-origin: border-box;
+  
+    animation: rotateBorder 8s linear infinite;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8fbeb47c); /* Aesthetic dark gradient */
+    background-size: 300% 300%;
+    animation: bgFlow 15s ease infinite;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  @keyframes bgFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
