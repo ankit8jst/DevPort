@@ -170,3 +170,55 @@ document.getElementById('emailForm').addEventListener('submit', function(e) {
         this.reset();
     }, 1000);
 });
+
+// Update hamburger menu code
+document.querySelector('.hamburger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    document.body.classList.toggle('no-scroll');
+});
+
+// Update in script.js
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Close mobile menu
+        document.querySelector('.hamburger').classList.remove('active');
+        document.querySelector('.nav-links').classList.remove('active');
+        document.body.classList.remove('no-scroll');
+
+        // Get target section
+        const target = document.querySelector(link.getAttribute('href'));
+        
+        // Smooth scroll with offset for fixed header
+        window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Mobile Menu Fix
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    // Toggle active class
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    
+    // Toggle body scroll
+    document.body.classList.toggle('no-scroll');
+});
+
+// Close menu when clicking links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    });
+});
