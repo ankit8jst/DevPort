@@ -41,60 +41,67 @@ const skills = [
         skillCard.style.animationDelay = `${index * 0.1}s`;
         skillsGrid.appendChild(skillCard);
     });
-const projects = [
-    { 
-        title: 'YouTube Comment Sentiment Analysis Tool',
-        desc: 'Python-based tool to analyze sentiments of YouTube comments',
-        tech: ['Python', 'NLP', 'TextBlob', 'Matplotlib', 'YouTube API'],
-        features: [
-            'Sentiment classification (Positive/Negative/Neutral)',
-            'Comment data visualization',
-            'YouTube API integration'
-        ]
-    },
-    { 
-        title: 'Login Page Backend using C++',
-        desc: 'Authentication system implementation in C++',
-        tech: ['C++'],
-        features: [
-            'User credential validation',
-            'Basic authentication system',
-            'Local storage handling'
-        ]
-    },
-    { 
-        title: 'Tic-Tac-Toe App',
-        desc: 'Interactive game with mobile conversion',
-        tech: ['JavaScript', 'HTML', 'CSS', 'WebIntoApp'],
-        features: [
-            'Responsive UI/UX design',
-            'Multi-device compatibility',
-            'Web-to-mobile conversion'
-        ]
-    }
-];
-const projectGallery = document.querySelector('.project-gallery');
-projects.forEach((project, index) => {
-    const projectCard = document.createElement('div');
-    projectCard.className = 'project-card';
-    projectCard.innerHTML = `
-        <div class="project-header">
-            <h3>${project.title}</h3>
-            <p>${project.desc}</p>
-        </div>
-        <div class="project-tech">
-            ${project.tech.map(t => `<span>${t}</span>`).join('')}
-        </div>
-        <div class="project-features">
-            <h4>Key Features:</h4>
-            <ul>
-                ${project.features.map(f => `<li>${f}</li>`).join('')}
-            </ul>
-        </div>
-    `;
-    projectCard.style.animationDelay = `${index * 0.1}s`;
-    projectGallery.appendChild(projectCard);
-});
+    const projects = [
+        { 
+            title: 'YouTube Comment Sentiment Analysis Tool',
+            desc: 'Python-based tool to analyze sentiments of YouTube comments',
+            tech: ['Python', 'NLP', 'TextBlob', 'Matplotlib', 'YouTube API'],
+            features: [
+                'Sentiment classification (Positive/Negative/Neutral)',
+                'Comment data visualization',
+                'YouTube API integration'
+            ],
+            link: 'https://github.com/ankit8jst/YouTube-Sentiment-Analyzer'
+        },
+        { 
+            title: 'Login Page Backend using C++',
+            desc: 'Authentication system implementation in C++',
+            tech: ['C++'],
+            features: [
+                'User credential validation',
+                'Basic authentication system',
+                'Local storage handling'
+            ],
+            link: 'https://github.com/ankit8jst/-Secure-Auth-System'
+        },
+        { 
+            title: 'Tic-Tac-Toe App',
+            desc: 'Interactive game with mobile conversion',
+            tech: ['JavaScript', 'HTML', 'CSS', 'WebIntoApp'],
+            features: [
+                'Responsive UI/UX design',
+                'Multi-device compatibility',
+                'Web-to-mobile conversion'
+            ],
+            link: 'https://github.com/ankit8jst/-Tic-Tac-Toe-Web-App-HTML-CSS-JS'
+        }
+    ];
+    
+    const projectGallery = document.querySelector('.project-gallery');
+    projects.forEach((project, index) => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        projectCard.innerHTML = `
+            <div class="project-content">
+                <div class="project-header">
+                    <h3>${project.title}</h3>
+                    <p>${project.desc}</p>
+                </div>
+                <div class="project-tech">
+                    ${project.tech.map(t => `<span>${t}</span>`).join('')}
+                </div>
+                <div class="project-features">
+                    <h4>Key Features:</h4>
+                    <ul>
+                        ${project.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+            <a href="${project.link}" target="_blank" class="view-button">View Project</a>
+        `;
+        projectCard.style.animationDelay = `${index * 0.1}s`;
+        projectGallery.appendChild(projectCard);
+    });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -181,5 +188,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
 
