@@ -138,6 +138,7 @@
     opacity: 0;
     transform: translateY(20px);
     animation: cardAppear 0.5s ease forwards;
+    height: 450px;
 }
 
 .project-card img {
@@ -805,4 +806,59 @@ input, textarea {
     .nav-links.active {
         transform: translateX(0);
     }
+}
+
+
+.view-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.view-button:hover {
+    background-color: #45a049;
+}
+
+.project-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    text-align: center;
+}
+
+
+
+
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.project-content {
+    flex: 1; 
+}
+
+.view-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    text-align: center;
+    align-self: flex-end; 
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.view-button:hover {
+    background-color: #45a049;
 }
