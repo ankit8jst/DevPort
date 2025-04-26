@@ -33,6 +33,12 @@ A modern, responsive portfolio website showcasing projects, skills, and contact 
   - Technical Skills
   - Project Showcase
   - Contact Form
+  - **Hamburger Menu**
+  - Responsive ☰ icon
+  - Smoothly transforms into an "X"
+  - Reveals a full-screen mobile menu
+  - Clean, animated, and user-friendly.
+  - Adds mobile navigation without disrupting your design.
 - **Responsive Design**
   - Mobile-first approach
   - Cross-device compatibility
