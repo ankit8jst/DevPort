@@ -11,8 +11,7 @@
 ![Screenshot 2025-04-26 104600](https://github.com/user-attachments/assets/3e1317e2-28af-4d87-b417-5e958051a74e)
 ![Screenshot 2025-04-26 104608](https://github.com/user-attachments/assets/b31be1a9-8c83-448e-a2af-6a1233e031c6)
 ![Screenshot 2025-04-26 104642](https://github.com/user-attachments/assets/395f51ff-9aae-4658-ab36-3bde220c0b64)
-![Screenshot 2025-04-2![Screenshot 2025-04-26 104901](https://github.com/user-attachments/assets/71179828-d76f-4c1b-afc1-e41ddb4bdecd)
-6 104651](https://github.com/user-attachments/assets/9b936db2-49d7-4cb9-bb76-ad8fffcd3fa5)
+
 
 
 A modern, responsive portfolio website showcasing projects, skills, and contact information. Features automatic Gmail redirection for contact form submissions.
