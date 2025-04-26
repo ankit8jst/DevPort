@@ -3,15 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1000,
         once: true
     });
-
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
-
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.hamburger').classList.remove('active');
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
 const skills = [
     { name: 'C++', level: 85, icon: 'fas fa-code' },
     { name: 'Python', level: 80, icon: 'fab fa-python' },
@@ -24,7 +27,6 @@ const skills = [
     { name: 'CSS3', level: 90, icon: 'fab fa-css3-alt' },
     { name: 'JavaScript', level: 80, icon: 'fab fa-js' }
 ];
-
     const skillsGrid = document.querySelector('.skills-grid');
     skills.forEach((skill, index) => {
         const skillCard = document.createElement('div');
@@ -39,7 +41,6 @@ const skills = [
         skillCard.style.animationDelay = `${index * 0.1}s`;
         skillsGrid.appendChild(skillCard);
     });
-
 const projects = [
     { 
         title: 'YouTube Comment Sentiment Analysis Tool',
@@ -72,7 +73,6 @@ const projects = [
         ]
     }
 ];
-
 const projectGallery = document.querySelector('.project-gallery');
 projects.forEach((project, index) => {
     const projectCard = document.createElement('div');
@@ -105,7 +105,6 @@ projects.forEach((project, index) => {
         });
     });
 });
-
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if(window.scrollY > 100) {
@@ -114,14 +113,6 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 });
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.querySelector('.hamburger').classList.remove('active');
-        document.querySelector('.nav-links').classList.remove('active');
-    });
-});
-
 
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -137,9 +128,7 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 });
-
 document.documentElement.style.setProperty('--shadow-intensity', 0);
-
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const heroHeight = document.querySelector('.hero').offsetHeight;
@@ -149,7 +138,6 @@ window.addEventListener('scroll', () => {
         '--shadow-intensity', 
         scrollPercent * 0.3 
     );
-    
     navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 document.getElementById('emailForm').addEventListener('submit', function(e) {
@@ -170,3 +158,28 @@ document.getElementById('emailForm').addEventListener('submit', function(e) {
         this.reset();
     }, 1000);
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const body = document.body;
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        if (navMenu.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    });
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = '';
+        });
+    });
+});
+
+
